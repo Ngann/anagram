@@ -25,7 +25,7 @@ def these_are_words(word_one, word_two)
  end
 end
 
-def anagram_or_antigram(word_one, word_two)
+def anagram(word_one, word_two)
   if these_are_words(word_one, word_two) == false
     puts "#{word_one} is a word? #{word_has_vowel(word_one) }"
     puts "#{word_two} is a word? #{word_has_vowel(word_two) }"
@@ -46,6 +46,8 @@ def is_antigram(word_one, word_two)
 end
 
 def words_in_a_phrase (phrase)
+  phrase = phrase.gsub(/[^A-Za-z0-9 ]/, '')
+  phrase = phrase.downcase
   phrase = phrase.split()
   is_a_word = []
   is_not_a_word = []

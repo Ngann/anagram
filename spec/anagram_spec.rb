@@ -43,15 +43,15 @@ describe('#these_are_words') do
   end
 end
 
-describe('#anagram_or_antigram') do
+describe('#anagram') do
     it('returns true if the words are anagrams') do
-    expect(anagram_or_antigram('sally','allys')).to(eq('These words are anagrams'))
+    expect(anagram('sally','allys')).to(eq('These words are anagrams'))
   end
 end
 
-describe('#anagram_or_antigram') do
+describe('#anagram') do
     it('returns true if the words are antigrams') do
-    expect(anagram_or_antigram('sally','ditch')).to(eq('These words are antigrams'))
+    expect(anagram('sally','ditch')).to(eq('These words are antigrams'))
   end
 end
 
@@ -64,5 +64,11 @@ end
 describe('#words_in_a_phrase') do
     it('returns false if the words contains the same letter') do
     expect(words_in_a_phrase('check this string')).to(eq( ['check','this','string']))
+  end
+end
+
+describe('#words_in_a_phrase') do
+    it('returns false if the words contains the same letter') do
+    expect(words_in_a_phrase("'We'd like to check this string'")).to(eq( ['wed','like','to','check','this','string']))
   end
 end
