@@ -37,6 +37,12 @@ describe('#these_are_words') do
   end
 end
 
+describe('#these_are_words') do
+    it('returns true if both inputs are words') do
+    expect(these_are_words('Ruby has a friend','Bury has a friend')).to(eq(true))
+  end
+end
+
 describe('#anagram_or_antigram') do
     it('returns true if the words are anagrams') do
     expect(anagram_or_antigram('sally','allys')).to(eq('These words are anagrams'))
@@ -52,5 +58,11 @@ end
 describe('#is_antigram') do
     it('returns false if the words contains the same letter') do
     expect(is_antigram('ruby','holt')).to(eq(false))
+  end
+end
+
+describe('#words_in_a_phrase') do
+    it('returns false if the words contains the same letter') do
+    expect(words_in_a_phrase('check this string')).to(eq( ['check','this','string']))
   end
 end
