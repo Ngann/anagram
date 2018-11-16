@@ -1,3 +1,13 @@
+def words_match(word_one, word_two)
+  word_one = word_one.split('')
+  word_two = word_two.split('')
+  if word_one.sort == word_two.sort
+    return true
+  else
+    return false
+  end
+end
+
 def word_has_vowel(word)
   vowels = ['a','e','i','o','u']
   word = word.split('')
@@ -12,23 +22,20 @@ def these_are_words(word_one, word_two)
  end
 end
 
-def words_match(word_one, word_two)
-  word_one = word_one.split('')
-  word_two = word_two.split('')
-  if word_one.sort == word_two.sort
-    return true
-  else
-    return false
+def both_words_are_anagram(word_one, word_two)
+  if these_are_words(word_one, word_two) & words_match(word_one, word_two)
+    return "These words are anagrams"
+  elsif these_are_words(word_one, word_two) & is_antigram(word_one, word_two)
+    return "These words are antigrams"
   end
 end
 
-
-def both_words_are_anagram(word_one, word_two)
-  if these_are_words(word_one, word_two) & words_match(word_one, word_two)
-    return "is an anagram"
+def is_antigram(word_one, word_two)
+  word_one = word_one.split('')
+  word_two = word_two.split('')
+  if word_one.sort != word_two.sort
+    return true
   else
-    puts "#{word_one} is a word? #{word_has_vowel(word_one) }"
-    puts "#{word_two} is a word? #{word_has_vowel(word_two) }"
-    puts "Please enter only words!"
+    return false
   end
 end
