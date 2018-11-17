@@ -55,6 +55,12 @@ describe('#anagram') do
   end
 end
 
+describe('#anagram') do
+    it('returns true if the words are antigrams') do
+    expect(anagram('sally','silly')).to(eq('These are words but neither anagrams or antigrams'))
+  end
+end
+
 describe('#is_antigram') do
     it('returns false if the words contains the same letter') do
     expect(is_antigram('ruby','holt')).to(eq(false))
