@@ -62,3 +62,7 @@ def words_in_a_phrase (phrase)
   end
    return  is_a_word
 end
+
+def compare_words_in_array(phrase)
+
+end
