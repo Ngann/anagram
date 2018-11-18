@@ -3,6 +3,12 @@ def words(word)
   word_to_array = word.split('')
 end
 
+def input_is_a_word(word)
+  vowels = ['a','e','i','o','u']
+  word_to_array = words(word)
+  word_to_array.any? {|letter| vowels.include?(letter)}
+end
+
 def words_match(word_one, word_two)
   word_one_to_array = words(word_one)
   word_two_to_array = words(word_two)
@@ -13,29 +19,8 @@ def words_match(word_one, word_two)
   end
 end
 
-
-# def words_match(word_one, word_two)
-#   word_one = word_one.downcase
-#   word_one_to_array = word_one.split('')
-#   word_two = word_two.downcase
-#   word_two_to_array = word_two.split('')
-#   if word_one_to_array.sort == word_two_to_array.sort
-#     return true
-#   else
-#     return false
-#   end
-# end
-
-def word_has_vowel(word)
-  vowels = ['a','e','i','o','u']
-  word = word.downcase
-  word_to_array = word.split('')
-  word_to_array.any? {|letter| vowels.include?(letter)}
-end
-
-
 def these_are_words(word_one, word_two)
-  if (word_has_vowel(word_one) & word_has_vowel(word_two))
+  if (input_is_a_word(word_one) & input_is_a_word(word_two))
     return true
   else
     return false
@@ -44,8 +29,8 @@ end
 
 def anagram(word_one, word_two)
   if these_are_words(word_one, word_two) == false
-    puts "Is #{word_one} a word? #{word_has_vowel(word_one) }"
-    puts "Is #{word_two} a word? #{word_has_vowel(word_two) }"
+    puts "Is #{word_one} a word? #{input_is_a_word(word_one) }"
+    puts "Is #{word_two} a word? #{input_is_a_word(word_two) }"
     return "Please enter only words"
   elsif words_match(word_one, word_two)
     return "These words are anagrams"
@@ -57,24 +42,28 @@ def anagram(word_one, word_two)
 end
 
 def is_antigram(word_one, word_two)
-  word_one = word_one.split('')
-  word_two = word_two.split('')
+  word_one = words(word_one)
+  word_two = words(word_two)
   word_one.any? {|letter| word_two.include?(letter)}
 end
 
-def words_in_a_phrase(phrase)
+def phrase_to_array(phrase)
   phrase = phrase.gsub(/[^A-Za-z0-9 ]/, '')
   phrase = phrase.downcase
   phrase = phrase.split()
+end
+
+def words_in_a_phrase(phrase)
+  phrase = phrase_to_array(phrase)
   is_a_word = []
   is_not_a_word = []
   phrase.each do |i|
-    if word_has_vowel(i)
+    if input_is_a_word(i)
       is_a_word.push(i)
-    # puts "#{i} a word? #{word_has_vowel(i)} "
+    # puts "#{i} a word? #{input_is_a_word(i)} "
     else
       is_not_a_word.push(i)
-      # puts "#{i} is a word? #{word_has_vowel(i)} "
+      # puts "#{i} is a word? #{input_is_a_word(i)} "
       puts "These are not words: #{is_not_a_word}"
     end
   end
