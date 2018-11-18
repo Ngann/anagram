@@ -55,17 +55,6 @@ end
 
 def words_in_a_phrase(phrase)
   phrase = phrase_to_array(phrase)
-  phrase.each do |i, e|
-    e = 0
-    i = -1
-    while (i <= phrase.length())
-    compare = anagram(phrase[e],phrase[i])
-    puts "#{compare}: #{phrase[e]} and #{phrase[i]} "
-      if i == (e-1)
-        e +=1
-      else
-        i +=1
-      end
-    end
-  end
+  compare = anagram(phrase[0],phrase[1])
+  compare
 end

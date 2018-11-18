@@ -69,6 +69,6 @@ end
 
 describe('#words_in_a_phrase') do
     it('returns is words in array are anagrams') do
-    expect(phrase_to_array("We'd like to check this string")).to(eq( ['wed','like','to','check','this','string']))
+    expect(words_in_a_phrase("Lose sole")).to(eq( "These words are anagrams"))
   end
 end
