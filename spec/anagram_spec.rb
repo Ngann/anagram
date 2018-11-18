@@ -14,13 +14,13 @@ describe('#words_match') do
 end
 
 describe('#word_has_vowel') do
-    it('returns true if the word contain a vowel') do
+  it('returns true if the word contain a vowel') do
     expect(word_has_vowel('hat')).to(eq(true))
   end
 end
 
 describe('#word_has_vowel') do
-    it('returns true if the word contain a vowel') do
+  it('returns true if the word contain a vowel') do
     expect(word_has_vowel('hAt')).to(eq(true))
   end
 end
@@ -75,6 +75,12 @@ end
 
 describe('#words_in_a_phrase') do
     it('returns array of words in a phrase without special character') do
-    expect(words_in_a_phrase("'We'd like to check this string'")).to(eq( ['wed','like','to','check','this','string']))
+    expect(words_in_a_phrase("We'd like to check this string")).to(eq( ['wed','like','to','check','this','string']))
+  end
+end
+
+describe('#compare__words_in_array') do
+    it('returns words in array which are anagrams') do
+    expect(compare__words_in_array("Ruby BUry But You")).to(eq( ['Ruby','BUry']))
   end
 end
