@@ -55,14 +55,20 @@ describe('#is_antigram') do
   end
 end
 
-describe('#words_in_a_phrase') do
+describe('#phrase_to_array') do
     it('returns array of words in a phrase') do
-    expect(words_in_a_phrase('check this string')).to(eq( ['check','this','string']))
+    expect(phrase_to_array('check this string')).to(eq( ['check','this','string']))
   end
 end
 
-describe('#words_in_a_phrase') do
+describe('#phrase_to_array') do
     it('returns array of words in a phrase without special character') do
-    expect(words_in_a_phrase("We'd like to check this string")).to(eq( ['wed','like','to','check','this','string']))
+    expect(phrase_to_array("We'd like to check this string")).to(eq( ['wed','like','to','check','this','string']))
+  end
+end
+
+describe('#phrase_to_array') do
+    it('returns array of words in a phrase without special character') do
+    expect(phrase_to_array("We'd like to check this string")).to(eq( ['wed','like','to','check','this','string']))
   end
 end

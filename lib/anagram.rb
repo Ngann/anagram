@@ -55,36 +55,14 @@ end
 
 def words_in_a_phrase(phrase)
   phrase = phrase_to_array(phrase)
-  is_a_word = []
-  is_not_a_word = []
-  phrase.each do |i|
-    if input_is_a_word(i)
-      is_a_word.push(i)
-    # puts "#{i} a word? #{input_is_a_word(i)} "
-    else
-      is_not_a_word.push(i)
-      # puts "#{i} is a word? #{input_is_a_word(i)} "
-      puts "These are not words: #{is_not_a_word}"
+  phrase.each do |i,e|
+    e = 0
+    i = -1
+    while (i <= phrase.length())
+    compare = anagram(phrase[e],phrase[i])
+    puts "#{compare}: #{phrase[e]} and #{phrase[i]} "
+      i += 1
+      e += 1
     end
-  end
-   return  is_a_word
-end
-
-def compare_words_in_array(phrase)
-  phrase_array = words_in_a_phrase(phrase)
-  # compare = anagram(phrase[0],phrase[1])
-  # puts "#{compare} #{phrase[0]} #{phrase[i]}"
-  # compareOne = anagram(phrase[0],phrase[2])
-  # puts "#{compareOne} #{phrase[0]} #{phrase[2]}"
-  # compareTwo = anagram(phrase[0],phrase[3])
-  # puts "#{compareTwo} #{phrase[0]} #{phrase[3]}"
-  # compareThree = anagram(phrase[0],phrase[4])
-  # puts "#{compareThree} #{phrase[0]} #{phrase[4]}"
-  i = 0
-  phrase_array.each do |i|
-    i = i + 1
-  #   if words_in_a_phrase(phrase) == false
-    compare = anagram(phrase_array[0],phrase_array[i])
-    puts "#{compare} #{phrase_array[0]} #{phrase_array[i]}"
   end
 end
