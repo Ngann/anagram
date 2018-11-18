@@ -1,14 +1,30 @@
+def words(word)
+  word = word.downcase
+  word_to_array = word.split('')
+end
+
 def words_match(word_one, word_two)
-  word_one = word_one.downcase
-  word_one_to_array = word_one.split('')
-  word_two = word_two.downcase
-  word_two_to_array = word_two.split('')
+  word_one_to_array = words(word_one)
+  word_two_to_array = words(word_two)
   if word_one_to_array.sort == word_two_to_array.sort
     return true
   else
     return false
   end
 end
+
+
+# def words_match(word_one, word_two)
+#   word_one = word_one.downcase
+#   word_one_to_array = word_one.split('')
+#   word_two = word_two.downcase
+#   word_two_to_array = word_two.split('')
+#   if word_one_to_array.sort == word_two_to_array.sort
+#     return true
+#   else
+#     return false
+#   end
+# end
 
 def word_has_vowel(word)
   vowels = ['a','e','i','o','u']
