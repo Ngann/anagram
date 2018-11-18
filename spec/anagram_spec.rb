@@ -67,8 +67,8 @@ describe('#phrase_to_array') do
   end
 end
 
-describe('#phrase_to_array') do
-    it('returns array of words in a phrase without special character') do
+describe('#words_in_a_phrase') do
+    it('returns is words in array are anagrams') do
     expect(phrase_to_array("We'd like to check this string")).to(eq( ['wed','like','to','check','this','string']))
   end
 end
