@@ -1,74 +1,83 @@
 require('anagram')
 require('rspec')
 
-describe('#words') do
-  it('return array of a word') do
-    expect(words('hat')).to(eq(['h','a','t']))
-  end
-end
+describe(Anagrams) do
 
-describe('#words') do
-  it('returns array of a word') do
-    expect(words('hAt')).to(eq(['h','a','t']))
+  describe('#words_match') do
+      it('returns true if the words contains the same letter') do
+      test_word = Anagrams.new('ruby','bury')
+      expect(test_word.words_match()).to(eq(true))
+    end
   end
-end
 
-describe('#words_match') do
-    it('returns true if the words contains the same letter') do
-    expect(words_match('ruby','bury')).to(eq(true))
+  describe('#words_match') do
+      it('returns true if the words contains the same letter') do
+      test_word = Anagrams.new('Ruby','Bury')
+      expect(test_word.words_match()).to(eq(true))
+    end
   end
-end
 
-describe('#words_match') do
-    it('returns true if the words contains the same letter') do
-    expect(words_match('Ruby','Bury')).to(eq(true))
+  describe('#these_are_words') do
+      it('returns true if both inputs are words') do
+      test_word = Anagrams.new('ruby','bury')
+      expect(test_word.these_are_words()).to(eq(true))
+    end
   end
-end
 
-describe('#input_is_a_word') do
-  it('returns true if the word contain a vowel') do
-    expect(input_is_a_word('What')).to(eq(true))
+  describe('#these_are_words') do
+      it('returns true if both inputs are words') do
+      test_word = Anagrams.new('Ruby','Bury')
+      expect(test_word.these_are_words()).to(eq(true))
+    end
   end
-end
 
-describe('#input_is_a_word') do
-  it('returns true if the word contain a vowel') do
-    expect(input_is_a_word('WhAt')).to(eq(true))
+  describe('#word_string') do
+      it('returns false if the words do not contain the same letter') do
+      test_word = Anagrams.new("What's is?","that's It!")
+      expect(test_word.word_string()).to(eq("whatsis , thatsit"))
+    end
   end
-end
 
-describe('#these_are_words') do
-    it('returns true if both inputs are words') do
-    expect(these_are_words('ruby','bury')).to(eq(true))
+  describe('#is_antigram') do
+      it('returns false if the words do not contain the same letter') do
+      test_word = Anagrams.new('ruby','holT')
+      expect(test_word.is_antigram()).to(eq(false))
+    end
   end
-end
 
-describe('#these_are_words') do
-    it('returns true if both inputs are words') do
-    expect(these_are_words('Ruby','Bury')).to(eq(true))
+  describe('#anagram') do
+      it('returns false if the words do not contain the same letter') do
+      test_word = Anagrams.new('ruby','holT')
+      expect(test_word.anagram()).to(eq("These words are antigrams"))
+    end
   end
-end
 
-describe('#is_antigram') do
-    it('returns false if the words do not contain the same letter') do
-    expect(is_antigram('ruby','holT')).to(eq(false))
+  describe('#anagram') do
+      it('returns false if the words do not contain the same letter') do
+      test_word = Anagrams.new('Lose it','sole it')
+      expect(test_word.anagram()).to(eq("These words are anagrams"))
+    end
   end
-end
 
-describe('#phrase_to_array') do
-    it('returns array of words in a phrase') do
-    expect(phrase_to_array('check this string')).to(eq( ['check','this','string']))
+  describe('#anagram') do
+      it('returns false if the words do not contain the same letter') do
+      test_word = Anagrams.new("What's thAt?", "That's Nothing!")
+      expect(test_word.anagram()).to(eq("These are words but neither anagrams or antigrams"))
+    end
   end
-end
 
-describe('#phrase_to_array') do
-    it('returns array of words in a phrase without special character') do
-    expect(phrase_to_array("We'd like to check this string")).to(eq( ['wed','like','to','check','this','string']))
+  describe('#anagram') do
+      it('returns false if the words do not contain the same letter') do
+      test_word = Anagrams.new("mmmmm nnnn", "nnkggd")
+      expect(test_word.anagram()).to(eq("Please enter only words"))
+    end
   end
-end
 
-describe('#words_in_a_phrase') do
-    it('returns is words in array are anagrams') do
-    expect(words_in_a_phrase("Lose sole")).to(eq( "These words are anagrams"))
+  describe('#anagram') do
+      it('returns false if the words do not contain the same letter') do
+      test_word = Anagrams.new("hits att", "that's it")
+      expect(test_word.anagram()).to(eq("These words are anagrams"))
+    end
   end
+
 end
